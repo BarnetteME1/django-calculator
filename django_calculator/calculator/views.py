@@ -7,7 +7,7 @@ def math(request):
     second = request.GET.get('second_number')
     operator = request.GET.get('operator')
     op_dict = {'plus': "+", 'minus': "-", 'multiply': "*", 'divided': '/'}
-    if operator == None:
+    if operator is None:
         context = {'answer': ''}
         return render_to_response(template_name='calculator.html', context=context)
     else:
@@ -17,5 +17,8 @@ def math(request):
         except:
             context = {'answer': 'Cannot be calculated!!'}
             return render_to_response(template_name='calculator.html', context=context)
-    context = {'answer': answer'!f'}
+    context = {'answer': answer}
     return render_to_response(template_name='calculator.html', context=context)
+
+def test(request):
+    return render_to_response(template_name='test.html')
